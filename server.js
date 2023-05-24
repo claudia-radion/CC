@@ -15,10 +15,11 @@ const port = 3000;
 
 // aws rds configuration
 const connection = mysql.createConnection({
-      host: 'localhost',
+      host: 'databasepersons.c647eyfniogy.us-east-1.rds.amazonaws.com',
       user: 'admin',
       password: 'admin123',
       database: 'mydb',
+      port: 3306,
       insecureAuth: true
     });
 
