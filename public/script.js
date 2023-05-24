@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${item.first_name}</td>
             <td>${item.last_name}</td>
             <td>${item.birth}</td>
+            <td>${item.email}</td>
           `;
           dataBody.appendChild(row);
         });
