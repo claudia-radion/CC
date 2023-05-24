@@ -1,0 +1,11 @@
+CREATE TABLE friends (
+    id int NOT NULL AUTO_INCREMENT,
+    first_name varchar(255) NOT NULL,
+    last_name varchar(255),
+    birth date,
+    PRIMARY KEY (ID)
+);
+
+INSERT INTO friends VALUES(1, 'Claudia', 'Radion', '1998-05-07');
+
+SELECT * FROM friends;

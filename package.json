@@ -4,8 +4,13 @@
   "description": "description",
   "main": "app.js",
   "scripts": {
-    "start":"node app.js"
+    "start": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.3.2"
+  }
 }
