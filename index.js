@@ -22,19 +22,15 @@ connection.connect(err => {
   console.log('Connected to the MySQL database.');
 });
 
-// Middleware for parsing application/x-www-form-urlencoded requests
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Route for the home page
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
-// Route for processing the form submission
 app.post('/submit', (req, res) => {
   const { id, first_name, last_name, email, birth } = req.body;
 
-  // Check if all fields are filled
   if (!id || !first_name || !last_name || !email || !birth) {
     res.send('All fields must be filled!');
     return;
@@ -49,7 +45,6 @@ app.post('/submit', (req, res) => {
     birth
   };
 
-  // Execute the insert query in the database
   connection.query('INSERT INTO friends SET ?', friend, (err, result) => {
     if (err) {
       console.error('Error inserting into the database: ', err);
@@ -60,17 +55,14 @@ app.post('/submit', (req, res) => {
   });
 });
 
-// Route for processing the friend deletion
 app.post('/delete', (req, res) => {
   const { delete_id } = req.body;
 
-  // Check if the ID field is filled
   if (!delete_id) {
     res.send('The ID field must be filled!');
     return;
   }
 
-  // Execute the delete query in the database
   connection.query('DELETE FROM friends WHERE id = ?', delete_id, (err, result) => {
     if (err) {
       console.error('Error deleting from the database: ', err);
