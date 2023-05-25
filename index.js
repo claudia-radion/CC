@@ -5,13 +5,14 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
-// Configurarea conexiunii la baza de date MySQL
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'birthdays'
-});
+      host: 'databasepersons.c647eyfniogy.us-east-1.rds.amazonaws.com',
+      user: 'admin',
+      password: 'admin123',
+      database: 'mydb',
+      port: 3306,
+      insecureAuth: true
+    });
 
 connection.connect(err => {
   if (err) {
