@@ -36,7 +36,6 @@ app.post('/submit', (req, res) => {
     return;
   }
 
-  // Construct the data object for insertion
   const friend = {
     id,
     first_name,
