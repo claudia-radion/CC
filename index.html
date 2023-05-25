@@ -36,6 +36,15 @@
     <input type="submit" value="Delete">
   </form>
 
+    <button id="SNSbutton">Post Message</button>
+
+  <script>
+    const SNSbutton = document.getElementById('SNSbutton');
+
+    SNSbutton.addEventListener('click', () => {
+      window.location.href = 'https://hd1prab9ec.execute-api.us-east-1.amazonaws.com/default/happy_birthday';
+    });
+  </script>
   
 </body>
 </html>
