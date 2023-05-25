@@ -5,15 +5,13 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
-// Configurarea conexiunii aws rds
+// Configurarea conexiunii la baza de date MySQL
 const connection = mysql.createConnection({
-      host: 'databasepersons.c647eyfniogy.us-east-1.rds.amazonaws.com',
-      user: 'admin',
-      password: 'admin123',
-      database: 'mydb',
-      port: 3306,
-      insecureAuth: true
-    });
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'birthdays'
+});
 
 connection.connect(err => {
   if (err) {
@@ -58,6 +56,27 @@ app.post('/submit', (req, res) => {
       return;
     }
     res.send('Data has been successfully added to the database!');
+  });
+});
+
+// Route for processing the friend deletion
+app.post('/delete', (req, res) => {
+  const { delete_id } = req.body;
+
+  // Check if the ID field is filled
+  if (!delete_id) {
+    res.send('The ID field must be filled!');
+    return;
+  }
+
+  // Execute the delete query in the database
+  connection.query('DELETE FROM friends WHERE id = ?', delete_id, (err, result) => {
+    if (err) {
+      console.error('Error deleting from the database: ', err);
+      res.send('Error deleting from the database!');
+      return;
+    }
+    res.send('Friend has been successfully deleted from the database!');
   });
 });
 

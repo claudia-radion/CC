@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Add Friend</title>
+  <title>Friends</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
@@ -24,5 +24,15 @@
     <br>
     <input type="submit" value="Add">
   </form>
+
+  <h2>Delete Friend</h2>
+  <form action="/delete" method="post">
+    <label for="delete_id">ID:</label>
+    <input type="text" id="delete_id" name="delete_id" required>
+    <br>
+    <input type="submit" value="Delete">
+  </form>
+
+  
 </body>
 </html>
